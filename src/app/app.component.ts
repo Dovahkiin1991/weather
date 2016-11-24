@@ -20,7 +20,7 @@ export class AppComponent {
   constructor(http: Http) {
     this.http = http;
   }
-
+//comment
   performSearch(searchTerm: HTMLInputElement): void {
     var apiLink = this.api + searchTerm.value + this.link;
 
