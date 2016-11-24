@@ -1,3 +1,57 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <!-- heading -->
+  <div class="jumbotron">
+    <h1> {{title}} </h1>
+    <p>{{desc}}</p>
+  </div>
+  <!-- end heading -->
+  <div class="row">
+    <div class="weather-widget">
+      <div class="hero" data-bg-image="./assets/images/banner.png">
+				<div class="container">
+					<form action="#" class="find-location">
+						<input type="text" placeholder="Find your location..." #searchTerm>
+						  <button (click)="performSearch(searchTerm)" class="btn btn-default">Find</button>
+					</form>
+
+				</div>
+			</div>
+      <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="forecast" *ngFor="let g of collection.list; let i = index;" [ngClass]="{today : i == 0}">
+							<div class="forecast-header">
+								<div class="day">{{currentDay}}</div>
+                <div class="date" *ngIf="i == 0">6 Oct</div>
+							</div> <!-- .forecast-header -->
+              <!-- first item details -->
+              <div class="forecast-content" *ngIf="i == 0">
+								<div class="location">{{collection.city.name}}</div>
+								<div class="degree">
+									<div class="num">{{g.temp.day}}<sup>o</sup>C</div>
+									<div class="forecast-icon">
+										<img src="./assets/images/icons/{{g.weather[0].icon}}.png" alt="" width=90>
+									</div>
+								</div>
+								<span><img src="./assets/images/icon-umberella.png" alt="">{{g.humidity}}%</span>
+								<span><img src="./assets/images/icon-wind.png" alt="">{{g.speed}}m/s</span>
+							</div>
+              <!-- end first item details -->
+							<div class="forecast-content" *ngIf="i != 0">
+								<div class="forecast-icon">
+                  <span>{{g.weather[0].main}}</span>
+									<img src="./assets/images/icons/{{g.weather[0].icon}}.png" alt="" width=48>
+								</div>
+								<div class="degree">{{g.temp.day}}<sup>o</sup>C</div>
+                <span><img src="./assets/images/icon-wind.png" alt="">{{g.speed}}m/s</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
