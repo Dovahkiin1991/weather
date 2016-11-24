@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Weather app';
   desc = 'Application that show weather in current city';
   city = 'Poltava';
-  api = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
+  api = 'https://api.openweathermap.org/data/2.5/forecast/daily?q=';
   link = '&APPID=69c090ab8377610e780d1f3059fd34be&units=metric&cnt=7';
   today = new Date();
   days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
